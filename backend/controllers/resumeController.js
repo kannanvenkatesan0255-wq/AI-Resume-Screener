@@ -114,13 +114,15 @@ await candidate.save();
 console.log("Candidate Saved");
 res.json(result);
 
-        } catch {
+        } catch (error) {
 
-            res.status(500).json({
-                message: "Python Error"
-            });
+    console.log("ERROR:", error);
 
-        }
+    res.status(500).json({
+        message: error.message
+    });
+
+}
 
     });
 
